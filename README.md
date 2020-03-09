@@ -52,10 +52,11 @@ The figure below illustrates this behavior using an example.
  
  ### Who was here?
  
- [x] I
- [x] T-bond
- [x] Mr. Stark
- [ ] Covid-19
+ *[x] I
+ 
+ *[x] T-bond
+ *[x] Mr. Stark
+ *[ ] Covid-19
 
  `int c = 11;`
  
