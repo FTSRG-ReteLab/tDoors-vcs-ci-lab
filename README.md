@@ -1,4 +1,4 @@
-# Train Speed Controller
+# Train Speed Controller Improved V2
 
 This is a sample application for the verification laboratory.
 
