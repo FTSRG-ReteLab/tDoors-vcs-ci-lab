@@ -3,5 +3,11 @@ subprojects {
 
   repositories {
     jcenter()
+    mavenCentral()
   }
+
+  dependencies {
+    compile group: 'com.google.guava', name: 'guava', version: '28.2-jre'
+  }
+
 }
