@@ -13,8 +13,8 @@ public class TrainControllerImpl implements TrainController {
 	private int step = 0;
 	private int referenceSpeed = 0;
 	private int speedLimit = 100;
-	private final int TIME_INTERVAL = 2000;
-	private Timer timer = new Timer();
+	private static final int TIME_INTERVAL = 1000;
+	private final Timer timer = new Timer();
 
 	public Table<String, String, Long> tachograph = HashBasedTable.create();
 
