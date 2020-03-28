@@ -12,22 +12,20 @@ public class TrainControllerImpl implements TrainController {
 
 	private int step = 0;
 	private int referenceSpeed = 0;
-	private int speedLimit = 99; //in order to make defense from Covid-19
+	private int speedLimit = 99;
 	public Table<String, String, Long> tachograph = HashBasedTable.create();
-	private Thread t; //i ve chosen thread as the descreption of task suggested
-	private int interval = 3000; //3sec periodic
 
 	public TrainControllerImpl() {
-		t = new Thread() {
+		TimerTask tasknew = new TimerTask() {
+			@Override
 			public void run() {
-				t.run();
-				try {
-					followSpeed();
-					t.sleep(interval);
-				}
-				catch (Exception err) { err.printStackTrace(); }
+				followSpeed();
 			}
 		};
+
+		int interval = 3000;
+		Timer timer = new Timer();
+		timer.schedule(tasknew, interval, interval);
 	}
 
 	public void recordData() {
