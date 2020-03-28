@@ -5,13 +5,27 @@ import com.google.common.collect.Table;
 import hu.bme.mit.train.interfaces.TrainController;
 
 import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class TrainControllerImpl implements TrainController {
 
 	private int step = 0;
 	private int referenceSpeed = 0;
 	private int speedLimit = 100;
+	private final int TIME_INTERVAL = 2000;
+	private Timer timer = new Timer();
+
 	public Table<String, String, Long> tachograph = HashBasedTable.create();
+
+	public TrainControllerImpl() {
+		timer.schedule(new TimerTask() {
+			@Override
+			public void run() {
+				followSpeed();
+			}
+		}, TIME_INTERVAL, TIME_INTERVAL);
+	}
 
 	public void recordData() {
 		String cTime = new Date().toString();
